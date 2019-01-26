@@ -1,0 +1,41 @@
+<form style="border:1px solid #ccc" [formGroup]="regfrm">
+  <div class="container">
+    <h1>Register</h1>
+
+    <div>
+    <label for="username"><b>User Name</b></label>
+    <input type="text" placeholder="Enter Username" name="username" formControlName="uname" required>
+    <div class="alert-danger" *ngIf="regfrm.get('uname').invalid && regfrm.get('uname').touched">
+      please enter name
+   </div>
+      </div>
+      <div>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" formControlName="email" required>
+    <div class="alert-danger" *ngIf="regfrm.get('email').invalid && regfrm.get('email').touched">
+      <div *ngIf="regfrm.get('email').errors.required">please enter email</div>
+      <div *ngIf="regfrm.get('email').errors.email">email must be valid</div>
+   </div>
+        </div>
+     <div>   
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" formControlName="psw" required>
+    <div class="alert-danger" *ngIf="regfrm.get('psw').invalid && regfrm.get('psw').touched">
+      <div *ngIf="regfrm.get('psw').errors.required">please enter password</div>
+      <div *ngIf="regfrm.get('psw').errors.minlength">password must be 6 charater </div>
+    </div>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" formControlName="chk" style="margin-bottom:15px" required> <a routerLink="/terms-cond">Agree Terms & Condition</a>
+        </label>
+        <div class="alert-danger" *ngIf="regfrm.get('chk').invalid && regfrm.get('chk').touched">allow terms&cond</div>
+      </div>
+    
+
+  
+  <button type="submit" [disabled]="regfrm.invalid" (click)="onclick()" class="signupbtn">Sign Up</button>
+</div>
+</form>
+
+

@@ -1,0 +1,31 @@
+<form style="border:1px solid #ccc" [formGroup]="confrm">
+    <div class="container">
+        <h1>Contact Us</h1>
+ <div>
+    <label for="username"><b>User Name</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" formControlName="uname" required>
+    <div class="alert-danger" *ngIf="confrm.get('uname').invalid && confrm.get('uname').touched">
+       please enter name
+    </div>
+ </div>
+ <div>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" formControlName="email" required>
+    <div class="alert-danger" *ngIf="confrm.get('email').invalid && confrm.get('email').touched">
+      <div *ngIf="confrm.get('email').errors.required">please enter email</div>
+      <div *ngIf="confrm.get('email').errors.email">email must be valid</div>
+   </div>
+</div>
+
+   <div>
+    <label for="message"><b>Message</b></label>
+    <textarea cols="3" rows="3" placeholder="Enter Message" formControlName="message" required></textarea>
+    <div class="alert-danger" *ngIf="confrm.get('message').invalid && confrm.get('message').touched">
+      please enter message
+   </div>
+   </div>
+  
+  <button type="submit" class="loginbtn" [disabled]="!confrm.valid" (click)="onclick()">Send</button>
+</div>
+  </form>
+

@@ -1,0 +1,25 @@
+<form style="border:1px solid #ccc" [formGroup]="logfrm">
+  <div class="container">
+      <h1>Login</h1>
+<div>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" formControlName="email" required>
+    <div class="alert-danger" *ngIf="logfrm.get('email').invalid && logfrm.get('email').touched">
+      <div *ngIf="logfrm.get('email').errors.required">please enter email</div>
+      <div *ngIf="logfrm.get('email').errors.email">email must be valid</div>
+   </div>
+</div>
+<div>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" formControlName="psw" required>
+    <div class="alert-danger" *ngIf="logfrm.get('psw').invalid && logfrm.get('psw').touched">
+      <div *ngIf="logfrm.get('psw').errors.required">please enter password</div>
+      <div *ngIf="logfrm.get('psw').errors.minlength">password must be 6 charater </div>
+    </div>
+    </div>
+
+  
+  <button type="submit" [disabled]="logfrm.invalid" (click)="onclick()" class="loginbtn">Log In</button>
+  <button type="submit" class="signupbtn" routerLink="/register">Sign Up</button>
+</div>
+</form>
