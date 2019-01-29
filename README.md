@@ -29,3 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## node_modules
 
 node modules can not be uploaded on this git projects so user can use this project after adding node_modules in project..
+for add node modules use npm install command
